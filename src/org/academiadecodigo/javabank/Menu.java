@@ -78,6 +78,7 @@ public class Menu {
 
     public void openAccount(){
         accountManager.openAccount(AccountType.SAVINGS);
+
         accountManager.openAccount(AccountType.CHECKING);
     }
 
