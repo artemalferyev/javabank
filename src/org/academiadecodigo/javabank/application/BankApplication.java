@@ -3,6 +3,8 @@ package org.academiadecodigo.javabank.application;
 import org.academiadecodigo.bootcamp.Prompt;
 import org.academiadecodigo.bootcamp.scanners.integer.IntegerSetInputScanner;
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
+import org.academiadecodigo.javabank.View.Messages;
+import org.academiadecodigo.javabank.View.UserOptions;
 import org.academiadecodigo.javabank.application.operations.BalanceOperation;
 import org.academiadecodigo.javabank.application.operations.NewAccountOperation;
 import org.academiadecodigo.javabank.application.operations.Operation;

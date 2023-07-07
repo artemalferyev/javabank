@@ -1,4 +1,4 @@
-package org.academiadecodigo.javabank.application;
+package org.academiadecodigo.javabank.View;
 
 import org.academiadecodigo.javabank.application.operations.BalanceOperation;
 import org.academiadecodigo.javabank.application.operations.NewAccountOperation;

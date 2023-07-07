@@ -1,10 +1,9 @@
-package org.academiadecodigo.javabank.application;
+package org.academiadecodigo.javabank.View;
 
 /**
  * Messages to be used throughout the application
  */
 public class Messages {
-
     public final static String MENU_WELCOME = "Welcome to Java Bank";
     public final static String MENU_OPEN_ACCOUNT = "Open Account";
     public final static String MENU_DEPOSIT = "Make Deposit";

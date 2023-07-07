@@ -1,7 +1,7 @@
 package org.academiadecodigo.javabank.application.operations.transaction;
 
 import org.academiadecodigo.javabank.application.BankApplication;
-import org.academiadecodigo.javabank.application.UserOptions;
+import org.academiadecodigo.javabank.View.UserOptions;
 
 /**
  * An account transaction used to deposit an amount

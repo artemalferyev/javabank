@@ -22,5 +22,6 @@ public class App {
 
         BankApplication bankApplication = new BankApplication(bank);
         bankApplication.start();
+
     }
 }
