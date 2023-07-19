@@ -1,11 +1,17 @@
 package org.academiadecodigo.javabank.model.account;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * A savings account model entity which requires a minimum balance
  * and can only be used for transferring money, not for debiting
  * @see Account
  * @see AccountType#SAVINGS
  */
+@Entity
+@DiscriminatorValue("Savings Account")
 public class SavingsAccount extends AbstractAccount {
 
     public static final double MIN_BALANCE = 100;

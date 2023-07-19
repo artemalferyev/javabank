@@ -33,7 +33,6 @@ public class JDBCTransactionManager implements TransactionManager {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         sm.stopSession();
     }
 
@@ -46,7 +45,6 @@ public class JDBCTransactionManager implements TransactionManager {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         sm.stopSession();
     }
 }

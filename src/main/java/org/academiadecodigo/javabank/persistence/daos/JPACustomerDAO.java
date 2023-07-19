@@ -4,13 +4,8 @@ import org.academiadecodigo.javabank.model.Customer;
 
 import java.util.List;
 
-public interface CustomerDao extends Dao<Customer> {
-
-    /**
-     * Gets a list of customer ids
-     *
-     * @return the list of customer ids
-     */
+public interface JPACustomerDAO extends Dao<Customer> {
 
     List<Integer> getCustomerIds();
+
 }

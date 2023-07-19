@@ -4,19 +4,20 @@ import org.academiadecodigo.javabank.model.account.Account;
 import org.academiadecodigo.javabank.persistence.TransactionException;
 import org.academiadecodigo.javabank.persistence.TransactionManager;
 import org.academiadecodigo.javabank.persistence.daos.AccountDao;
+import org.academiadecodigo.javabank.persistence.daos.jpa.JPAAccountDao;
 
 
 public class AccountServiceImpl implements AccountService {
 
-    private AccountDao accountDao;
+    private JPAAccountDao jpaAccountDao;
     private TransactionManager tm;
 
     public void setTm(TransactionManager tm) {
         this.tm = tm;
     }
 
-    public void setAccountDAO(AccountDao accountDao) {
-        this.accountDao = accountDao;
+    public void setJpaAccountDao(JPAAccountDao jpaAccountDao) {
+        this.jpaAccountDao = jpaAccountDao;
     }
 
     @Override
@@ -24,7 +25,7 @@ public class AccountServiceImpl implements AccountService {
 
         try {
             tm.beginRead();
-            return accountDao.findById(id);
+            return jpaAccountDao.findById(id);
         } finally {
             tm.commit();
         }
@@ -36,7 +37,7 @@ public class AccountServiceImpl implements AccountService {
 
         try {
             tm.beginWrite();
-            accountDao.saveOrUpdate(account);
+            jpaAccountDao.saveOrUpdate(account);
 
             tm.commit();
         } catch (TransactionException e) {
@@ -58,7 +59,7 @@ public class AccountServiceImpl implements AccountService {
             }
 
             account.credit(amount);
-            accountDao.saveOrUpdate(account);
+            jpaAccountDao.saveOrUpdate(account);
             tm.commit();
         } catch (TransactionException e) {
             tm.rollback();
@@ -78,7 +79,7 @@ public class AccountServiceImpl implements AccountService {
             }
 
             account.debit(amount);
-            accountDao.saveOrUpdate(account);
+            jpaAccountDao.saveOrUpdate(account);
             tm.commit();
 
         } catch (TransactionException e) {
@@ -102,8 +103,8 @@ public class AccountServiceImpl implements AccountService {
                 srcAccount.debit(amount);
                 dstAccount.credit(amount);
 
-                accountDao.saveOrUpdate(srcAccount);
-                accountDao.saveOrUpdate(dstAccount);
+                jpaAccountDao.saveOrUpdate(srcAccount);
+                jpaAccountDao.saveOrUpdate(dstAccount);
             }
             tm.commit();
         } catch (TransactionException e) {

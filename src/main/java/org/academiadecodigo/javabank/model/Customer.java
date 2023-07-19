@@ -1,20 +1,29 @@
 package org.academiadecodigo.javabank.model;
 
+import org.academiadecodigo.javabank.model.account.AbstractAccount;
 import org.academiadecodigo.javabank.model.account.Account;
+import org.hibernate.annotations.LazyToOne;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The customer model entity
  */
+@Entity
+@Table (name = "Customer")
+@Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
 public class Customer extends AbstractModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
 
+    @OneToMany(targetEntity = AbstractAccount.class)
     private List<Account> accounts = new ArrayList<>();
 
     /**

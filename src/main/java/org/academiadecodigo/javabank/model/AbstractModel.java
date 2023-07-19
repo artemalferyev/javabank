@@ -1,8 +1,11 @@
 package org.academiadecodigo.javabank.model;
 
+import javax.persistence.MappedSuperclass;
+
 /**
  * A generic model entity to be used as a base for concrete types of models
  */
+@MappedSuperclass
 public abstract class AbstractModel implements Model {
 
     private Integer id;

@@ -64,9 +64,7 @@ public class JDBCCustomerDao implements CustomerDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return customer;
-
     }
 
 

@@ -21,7 +21,6 @@ public class JDBCAccountDao implements AccountDao {
 
     private JDBCSessionManager sm;
 
-
     public void setConnectionManager(JDBCSessionManager JDBCSessionManager) {
         this.sm = JDBCSessionManager;
     }

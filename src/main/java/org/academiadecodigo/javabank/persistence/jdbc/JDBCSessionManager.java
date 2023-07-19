@@ -12,7 +12,6 @@ public class JDBCSessionManager implements SessionManager<Connection> {
     private static final String DEFAULT_PASS = "";
     private static final String DEFAULT_HOST = "localhost";
     private static final String DEFAULT_DB = "jdbcbank";
-
     private static final String CONNECTOR = "jdbc:mysql:";
 
     private String dbUrl;

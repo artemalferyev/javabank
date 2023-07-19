@@ -5,17 +5,19 @@ import org.academiadecodigo.javabank.model.account.Account;
 import org.academiadecodigo.javabank.persistence.TransactionException;
 import org.academiadecodigo.javabank.persistence.TransactionManager;
 import org.academiadecodigo.javabank.persistence.daos.CustomerDao;
+import org.academiadecodigo.javabank.persistence.daos.jpa.JPAAccountDao;
+import org.academiadecodigo.javabank.persistence.daos.jpa.JPACustomerDao;
 
 import java.util.*;
 
 public class CustomerServiceImpl implements CustomerService {
 
     private TransactionManager tm;
-    private CustomerDao customerDao;
+    private JPACustomerDao jpaCustomerDao;
 
 
-    public void setCustomerDAO(CustomerDao customerDao) {
-        this.customerDao = customerDao;
+    public void setJpaCustomerDao(JPACustomerDao jpaCustomerDao) {
+        this.jpaCustomerDao = jpaCustomerDao;
     }
 
     public void setTm(TransactionManager tm) {
@@ -28,7 +30,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         try {
             tm.beginRead();
-            return customerDao.findById(id);
+            return jpaCustomerDao.findById(id);
         } finally {
             tm.commit();
         }
@@ -40,7 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         try {
             tm.beginRead();
-            return customerDao.findAll();
+            return jpaCustomerDao.findAll();
         } finally {
             tm.commit();
         }
@@ -94,13 +96,11 @@ public class CustomerServiceImpl implements CustomerService {
 
         try {
             tm.beginWrite();
-            customerDao.saveOrUpdate(customer);
+            jpaCustomerDao.saveOrUpdate(customer);
             tm.commit();
         } catch (TransactionException e){
             tm.rollback();
         }
 
     }
-
-
 }
