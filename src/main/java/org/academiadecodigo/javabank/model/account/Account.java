@@ -2,10 +2,6 @@ package org.academiadecodigo.javabank.model.account;
 
 import org.academiadecodigo.javabank.model.Model;
 
-/**
- * Common interface for bank accounts, provides methods to access account
- * information and perform account transactions
- */
 public interface Account extends Model {
 
     /**
@@ -26,7 +22,7 @@ public interface Account extends Model {
      * Credits the account
      *
      * @param amount the amount to credit
-     * @see Account#canCredit(double)
+     * @see AbstractAccount#canCredit(double)
      */
     void credit(double amount);
 
@@ -34,7 +30,7 @@ public interface Account extends Model {
      * Debits the account
      *
      * @param amount the amount to debit
-     * @see Account#canDebit(double)
+     * @see AbstractAccount#canDebit(double)
      */
     void debit(double amount);
 
@@ -61,17 +57,5 @@ public interface Account extends Model {
      */
     boolean canWithdraw();
 
-    /**
-     * Returns the owning customer's Id
-     *
-     * @return the owning customer's Id
-     */
-    Integer getCustomerId();
 
-    /**
-     * Sets the owning customer id
-     *
-     * @param id the owner customer id
-     */
-    void setCustomerId(Integer id);
 }
