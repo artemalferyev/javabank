@@ -8,6 +8,7 @@ import org.hibernate.HibernateException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
+import java.util.LinkedList;
 import java.util.List;
 
 /**

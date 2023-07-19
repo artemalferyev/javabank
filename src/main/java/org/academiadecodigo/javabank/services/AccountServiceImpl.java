@@ -1,6 +1,7 @@
 package org.academiadecodigo.javabank.services;
 
 import org.academiadecodigo.javabank.model.account.AbstractAccount;
+import org.academiadecodigo.javabank.model.account.Account;
 import org.academiadecodigo.javabank.persistence.TransactionException;
 import org.academiadecodigo.javabank.persistence.TransactionManager;
 import org.academiadecodigo.javabank.persistence.dao.AccountDao;
@@ -37,7 +38,7 @@ public class AccountServiceImpl implements AccountService {
      * @see AccountService#get(Integer)
      */
     @Override
-    public AbstractAccount get(Integer id) {
+    public Account get(Integer id) {
 
         try {
 
@@ -49,11 +50,9 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
-    /**
-     * @see AccountService#add(AbstractAccount)
-     */
+
     @Override
-    public Integer add(AbstractAccount abstractAccount) {
+    public Integer add(AbstractAccount account) {
 
         Integer id = null;
 
@@ -61,7 +60,7 @@ public class AccountServiceImpl implements AccountService {
 
             tx.beginWrite();
 
-            id = accountDao.saveOrUpdate(abstractAccount).getId();
+            id = accountDao.saveOrUpdate(account).getId();
 
             tx.commit();
 

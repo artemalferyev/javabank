@@ -2,6 +2,7 @@ package org.academiadecodigo.javabank.services;
 
 
 import org.academiadecodigo.javabank.model.account.AbstractAccount;
+import org.academiadecodigo.javabank.model.account.Account;
 
 /**
  * Common interface for account services, provides methods to manage accounts and perform account transactions
@@ -14,7 +15,7 @@ public interface AccountService {
      * @param id the account id
      * @return the account
      */
-    AbstractAccount get(Integer id);
+    Account get(Integer id);
 
     /**
      * Adds an account to the service
