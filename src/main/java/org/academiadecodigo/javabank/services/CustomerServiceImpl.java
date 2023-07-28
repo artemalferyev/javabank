@@ -80,13 +80,13 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional(readOnly = true)
     @Override
     public List<Recipient> listRecipients(Integer id) {
-
-        // check then act logic requires transaction,
-        // event if read only
-
         Customer customer = Optional.ofNullable(customerDao.findById(id))
                 .orElseThrow(() -> new IllegalArgumentException("Customer does not exist"));
-
         return new ArrayList<>(customer.getRecipients());
+    }
+
+    @Override
+    public void delete(Integer id) {
+       customerDao.delete(id);
     }
 }
